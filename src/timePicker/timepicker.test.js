@@ -6,19 +6,20 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe('TimePicker', () => {
+  const wrapper = shallow(<TimePicker />);
+
   it('generates increments of 30mins from 00:00 AM to 11:30 PM', () => {
-    const wrapper = shallow(<TimePicker />);
+    wrapper.instance().handleTimePicker();
+    expect(wrapper.state('values').length).toBe(48);   
   });
 
   it('toggles between open and closed list of time values correctly', () => {
-    const wrapper = shallow(<TimePicker />);
+    wrapper.instance().toggleList();
+    expect(wrapper.state('listOpen')).toBe(true);   
   });
 
   it('selects clicked value correctly', () => {
-    const wrapper = shallow(<TimePicker />);
-  });
-
-  it('allows user to type in their own time', () => {
-    const wrapper = shallow(<TimePicker />);
+    wrapper.instance().selectValue('10:20AM');
+    expect(wrapper.state('inputValue')).toBe('10:20AM');   
   });
 });
