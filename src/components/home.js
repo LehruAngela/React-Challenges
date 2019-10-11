@@ -10,7 +10,10 @@ class Home extends Component {
     this.setState({
       signupOption: value
     });
-    this.props.history.push('/signup');
+    this.props.history.push({
+      pathname: '/signup',
+      state: { signupOption: value }
+    })
   }
 
   render() {
