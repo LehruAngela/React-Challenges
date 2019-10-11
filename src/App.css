@@ -3,6 +3,33 @@
   padding-top: 4em;
 }
 
+.timeInput {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: black;
+  height: 2em;
+  width: 11em;
+  text-align: center;
+  font-size: 1em;
+}
+
+.timeValues {
+  display:inline-block;
+  background-color: white;
+  width: 11em;
+  padding-top: 1em;
+  height: 20vh;
+  overflow: scroll;
+}
+
+.timeValue{
+  height: 2.5em;
+}
+
+.timeValue:hover {
+  background-color: rgb(238, 238, 238);
+}
+
 .form-group {
   padding: 1em;
 }
@@ -16,6 +43,11 @@ button {
   margin: 2em;
 }
 
-input{
+input {
   text-align: center
+}
+
+.select {
+  height: 3.5vh;
+  width: 15em;
 }

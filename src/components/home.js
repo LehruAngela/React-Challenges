@@ -19,9 +19,9 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <p>Choose to signup with either email or phone number</p>
+        <h4>Choose to signup with either email or phone number</h4>
         <div>
-          <select id="select">
+          <select id="select" className="select">
             <option value="email">Email</option>
             <option value="phoneNumber">Phone Number</option>
           </select>
