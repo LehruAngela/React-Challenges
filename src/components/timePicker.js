@@ -51,6 +51,7 @@ class TimePicker extends Component {
       inputValue: value,
       listOpen: false
     });
+    this.props.onSelectTime(value);
   }
 
   render() {

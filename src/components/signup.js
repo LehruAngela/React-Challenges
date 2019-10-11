@@ -15,7 +15,7 @@ class Signup extends Component {
     dob: '',
     address: '',
     bestTimeToContact: ''
-  }
+  };
 
   componentDidMount() {
     if (this.props.location.state.signupOption === "email") {
@@ -28,26 +28,32 @@ class Signup extends Component {
         renderPhoneNumber: true
       })
     }
-  }
+  };
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value })
-  }
+  };
 
   handleNext = () => {
     this.setState({
       step2: true,
       step1: false
     });
-  }
+  };
 
   handleBack = () => {
     this.setState({
       step1: true,
       step2: false
     })
-  }
+  };
+
+  handleTimePicker = (time) => {
+    this.setState({
+      bestTimeToContact: time
+    });
+  };
 
   handleSubmit = () => {
     this.props.history.push({
@@ -62,7 +68,7 @@ class Signup extends Component {
         bestTimeToContact: this.state.bestTimeToContact,
       }
     })
-  }
+  };
 
   render() {
     return (
@@ -85,8 +91,7 @@ class Signup extends Component {
           onChange={this.handleInputChange}
           dob={this.state.dob}
           address={this.state.address}
-          bestTimeToContact={this.state.bestTimeToContact}
-        />
+          handleTimePicker={this.handleTimePicker} />
       </Fragment>
     )
   }
@@ -142,7 +147,7 @@ const Step2 = props => {
       </div>
       <div className="form-group">
         <h4><label htmlFor="text">Best Time to Contact</label></h4>
-        <TimePicker />
+        <TimePicker onSelectTime={props.handleTimePicker}/>
       </div>
       <button onClick={props.back}>BACK</button>
       <button type="submit">SUBMIT</button>
