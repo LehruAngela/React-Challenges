@@ -3,3 +3,19 @@
   padding-top: 4em;
 }
 
+.form-group {
+  padding: 1em;
+}
+
+button, input{
+  width: 15em;
+  height: 3vh;
+}
+
+button {
+  margin: 2em;
+}
+
+input{
+  text-align: center
+}

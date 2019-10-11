@@ -53,7 +53,7 @@ class Signup extends Component {
     this.props.history.push({
       pathname: '/info',
       state: {
-        name: this.state.name, 
+        name: this.state.name,
         email: this.state.email,
         phoneNumber: this.state.phoneNumber,
         password: this.state.password,
@@ -76,7 +76,7 @@ class Signup extends Component {
           name={this.state.name}
           email={this.state.email}
           phoneNumber={this.state.phoneNumber}
-          password={this.state.password}/>
+          password={this.state.password} />
 
         <Step2
           step2={this.state.step2}
@@ -85,7 +85,8 @@ class Signup extends Component {
           onChange={this.handleInputChange}
           dob={this.state.dob}
           address={this.state.address}
-          bestTimeToContact={this.state.bestTimeToContact}/>
+          bestTimeToContact={this.state.bestTimeToContact}
+        />
       </Fragment>
     )
   }
@@ -96,29 +97,30 @@ const Step1 = props => {
     return null;
   }
   return (
-    <div>
-      <div>
-        <label htmlFor="text">Name</label>
-        <input type="text" name="name" value={props.name} onChange={props.onChange} />
+    <form onSubmit={props.next}>
+      <h2>Step 1</h2>
+      <div className="form-group">
+        <h4><label htmlFor="text">Name</label></h4>
+        <input type="text" name="name" value={props.name} onChange={props.onChange} required />
       </div>
       {props.renderEmail &&
-        <div>
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" value={props.email} onChange={props.onChange} />
+        <div className="form-group">
+          <h4><label htmlFor="email">Email</label></h4>
+          <input type="email" name="email" value={props.email} onChange={props.onChange} required />
         </div>
       }
       {props.renderPhoneNumber &&
-        <div>
-          <label htmlFor="text">Phone Number</label>
+        <div className="form-group">
+          <h4><label htmlFor="text">Phone Number</label></h4>
           <input type="text" name="phoneNumber" value={props.phoneNumber} onChange={props.onChange} required />
         </div>
       }
-      <div>
-        <label htmlFor="password">Password</label>
+      <div className="form-group">
+        <h4><label htmlFor="password">Password</label></h4>
         <input type="password" name="password" value={props.password} onChange={props.onChange} required />
       </div>
-      <button onClick={props.next}>NEXT</button>
-    </div>
+      <button type="submit">NEXT</button>
+    </form>
   )
 }
 
@@ -128,22 +130,23 @@ const Step2 = props => {
   }
 
   return (
-    <div>
-      <div>
-        <label htmlFor="text">Date of Birth</label>
+    <form onSubmit={props.submit}>
+    <h2>Step 2</h2>
+      <div className="form-group">
+        <h4><label htmlFor="text">Date of Birth</label></h4>
         <input type="text" name="dob" value={props.dob} onChange={props.onChange} required />
       </div>
-      <div>
-        <label htmlFor="text">Street Address</label>
+      <div className="form-group">
+        <h4><label htmlFor="text">Street Address</label></h4>
         <input type="text" name="address" value={props.address} onChange={props.onChange} required />
       </div>
-      <div>
-        <label htmlFor="text">Best Time to Contact</label>
+      <div className="form-group">
+        <h4><label htmlFor="text">Best Time to Contact</label></h4>
         <TimePicker />
       </div>
       <button onClick={props.back}>BACK</button>
-      <button onClick={props.submit}>SUBMIT</button>
-    </div>
+      <button type="submit">SUBMIT</button>
+    </form>
   );
 }
 

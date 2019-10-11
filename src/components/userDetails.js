@@ -6,40 +6,41 @@ class UserDetails extends Component {
     email: '',
     phoneNumber: '',
     password: '',
-    dob: ''
+    dob: '',
+    address: '',
+    bestTimeToContact: '',
   }
   componentDidMount() {
-    console.log(this.props.location.state.password)
     this.setState({
       name: this.props.location.state.name,
       email: this.props.location.state.email,
       phoneNumber: this.props.location.state.phoneNumber,
       password: this.props.location.state.password,
       dob: this.props.location.state.dob,
+      address: this.props.location.state.address,
+      bestTimeToContact: this.props.location.state.bestTimeToContact,
     })
   }
 
   render() {
-    const { name, email, phoneNumber, password, dob, address } = this.state;
+    const { name, email, phoneNumber, password, dob, address, bestTimeToContact } = this.state;
     return (
       <div>
-        Name: {name}
+        <h4>Name:</h4> {name}
         {email &&
           <div>
-            Email: {email}
+            <h4>Email:</h4> {email}
           </div>
         }
         {phoneNumber &&
           <div>
-            Phone Number: {phoneNumber}
+            <h4>Phone Number:</h4> {phoneNumber}
           </div>
         }
-        Password: {password}
-        Date of Birth: {dob}
-        Street Address: {address}
-        
-
-
+        <h4>Password:</h4> {password}
+        <h4>Date of Birth:</h4> {dob}
+        <h4>Street Address:</h4> {address}
+        <h4>Best Time to Contact:</h4> {bestTimeToContact}
       </div>
     )
   }

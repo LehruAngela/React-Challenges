@@ -64,7 +64,6 @@ class TimePicker extends Component {
 
     return (
       <div>
-        <h4>TIME PICKER</h4>
         <div onClick={() => this.toggleList()}>
           <input type="text" className="timeInput" name="inputValue" value={inputValue} onChange={this.handleInputChange}></input>
         </div>
