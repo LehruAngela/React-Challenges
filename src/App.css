@@ -17,10 +17,15 @@
   display:inline-block;
   background-color: white;
   width: 17.5em;
-  /* height: 70vh;
-  overflow: scroll; */
+  padding-top: 1em;
+  height: 70vh;
+  overflow: scroll;
+}
+
+.timeValue{
+  height: 2.5em;
 }
 
 .timeValue:hover {
-  background-color: gray;
+  background-color: rgb(238, 238, 238);
 }

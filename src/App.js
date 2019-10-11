@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import TimePicker from './timepicker';
+import TimePicker from './timePicker';
 
 function App() {
   return (

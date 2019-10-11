@@ -19,7 +19,7 @@ class TimePicker extends Component {
   handleTimePicker = () => {
     let startTime = 0;
     let times = [];
-       
+
     for (let i = 0; startTime < 24 * 60; i++) {
       let hours = Math.floor(startTime / 60); // getting hours of day in 0-24 format
       let mins = (startTime % 60); // getting minutes of the hour in 0-55 format
@@ -39,7 +39,10 @@ class TimePicker extends Component {
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
-    this.setState({ [name]: value })
+    this.setState({
+      [name]: value,
+      listOpen: false
+    });
   }
 
   /* Function to select the clicked time value */
@@ -47,14 +50,14 @@ class TimePicker extends Component {
     this.setState({
       inputValue: value,
       listOpen: false
-    })
+    });
   }
 
   render() {
     const { values, listOpen, inputValue } = this.state;
     const timeValues = values.map(value => (
       <div key={value} onClick={() => this.selectValue(value)}>
-        <p>{value}</p>
+        <div className="timeValue">{value}</div>
       </div>
     ));
 
@@ -63,10 +66,10 @@ class TimePicker extends Component {
       <div>
         <h4>TIME PICKER</h4>
         <div onClick={() => this.toggleList()}>
-          <input type="text" className="timeInput" value={inputValue} onChange={this.handleInputChange}></input>
+          <input type="text" className="timeInput" name="inputValue" value={inputValue} onChange={this.handleInputChange}></input>
         </div>
-        <div className="timeValues">
-          {listOpen && <li>{timeValues}</li>}
+        <div>
+          {listOpen && <li className="timeValues">{timeValues}</li>}
         </div>
       </div>
     )
