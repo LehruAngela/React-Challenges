@@ -43,6 +43,7 @@ class TimePicker extends Component {
       [name]: value,
       listOpen: false
     });
+    this.props.onSelectTime(value);
   }
 
   /* Function to select the clicked time value */
