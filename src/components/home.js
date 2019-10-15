@@ -2,17 +2,18 @@ import React, { Component } from 'react';
 
 class Home extends Component {
   state = {
-    signupOption: ''
+    signupOption: 'email'
   }
 
+  handleInputChange = (event) => {
+    // let value = document.getElementById("select").value;
+    this.setState({ signupOption: 'phoneNumber' })
+  };
+
   submit = () => {
-    let value = document.getElementById("select").value;
-    this.setState({
-      signupOption: value
-    });
     this.props.history.push({
       pathname: '/signup',
-      state: { signupOption: value }
+      state: { signupOption: this.state.signupOption }
     })
   }
 
@@ -21,8 +22,8 @@ class Home extends Component {
       <div>
         <h4>Choose to signup with either email or phone number</h4>
         <div>
-          <select id="select" className="select">
-            <option value="email">Email</option>
+          <select id="select" className="select" onChange={this.handleInputChange}>
+            <option>Email</option>
             <option value="phoneNumber">Phone Number</option>
           </select>
         </div>
