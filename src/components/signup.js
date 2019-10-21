@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import TimePicker from './timePicker';
+import TimePicker from './TimePicker';
+import pickOption from './hoc/pickOption';
 
 class Signup extends Component {
   state = {
-    signupOption: '',
     step1: true,
     step2: false,
     renderEmail: false,
@@ -18,12 +18,13 @@ class Signup extends Component {
   };
 
   componentDidMount() {
-    if (this.props.location.state.signupOption === "email") {
+    console.log('props', this.props)
+    if (this.props.signupOption === "email") {
       this.setState({
         renderEmail: true
       })
     }
-    if (this.props.location.state.signupOption === "phoneNumber") {
+    if (this.props.signupOption === "phoneNumber") {
       this.setState({
         renderPhoneNumber: true
       })
@@ -155,4 +156,4 @@ const Step2 = props => {
   );
 }
 
-export default Signup;
+export default pickOption(Signup);
